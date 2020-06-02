@@ -3,18 +3,23 @@
         <h1 class="header">
             Random Person
         </h1>
-        <button @click="getRandomPerson()">Random</button>
-        <ActiveCard :person="randomPerson" />
+
+        <b-button size="sm" @click="getRandomPerson()" variant="outline-dark">Random</b-button>
+        <div class="active-person" v-if="randomPerson.name">
+            <ActiveCard :person="randomPerson" />
+        </div>
     </div>
 </template>
 
 <script>
+import { BButton } from 'bootstrap-vue'
 import { infoService } from '../services'
 import ActiveCard from '../components/ActiveCard.vue'
 export default {
     name: 'RandomPerson',
     components: {
         ActiveCard,
+        BButton
     },
     data() {
         return {
@@ -31,7 +36,6 @@ export default {
         },
     },
     beforeMount() {
-        //this.getTest()
         this.getRandomPerson()
     },
 }

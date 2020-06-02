@@ -15,7 +15,7 @@
                 @newActive="activePerson = $event"
             />
         </div>
-        <div class="active-person" v-if="personsAtPage.length">
+        <div class="active-person" v-if="activePerson.name">
             <ActiveCard :person="activePerson" />
         </div>
     </div>
