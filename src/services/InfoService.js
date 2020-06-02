@@ -12,4 +12,9 @@ export class InfoService {
                 throw new Error(err)
             })
     }
+    // getTest(){
+    //     return axios
+    //         .get('https://rickandmortyapi.com/api/character/?name=r')
+    //         .then(res => res.data.results)
+    // }
 }
