@@ -4,7 +4,7 @@
         <img class="active-person__image" :src="person.image" />
         <p>Status: {{ person.status }}</p>
         <p>Species: {{ person.species }}</p>
-        <p v-if="person.type.length">{{ person.type }}</p>
+        <p v-if="person.type.length">Type: {{ person.type }}</p>
         <p>Gender: {{ person.gender }}</p>
         <p>Location{{ person.location.name }}</p>
     </div>
