@@ -91,9 +91,9 @@ const plugins = () => {
         new VueLoaderPlugin(),
     ]
     // turn on that when analizer needed after each build
-    // if (isProd) {
-    //     base.push(new BundleAnalyzerPlugin())
-    // }
+    if (isProd) {
+        base.push(new BundleAnalyzerPlugin())
+    }
     return base
 }
 
