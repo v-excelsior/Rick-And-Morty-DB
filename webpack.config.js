@@ -12,18 +12,17 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
 
-const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`)
+const filename = ext => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`)
 
-const cssLoaders = (extra) => {
+const cssLoaders = extra => {
     const loaders = [
-        // {
-        //     loader: MiniCssExtractPlugin.loader,
-        //     options: {
-        //         hmr: isDev,
-        //         reloadAll: true,
-        //     },
-        // },
-        'vue-style-loader',
+        {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+                hmr: isDev,
+                reloadAll: true,
+            },
+        },
         'css-loader',
     ]
     if (extra) {
@@ -32,7 +31,7 @@ const cssLoaders = (extra) => {
     return loaders
 }
 
-const babelOptions = (preset) => {
+const babelOptions = preset => {
     const options = {
         presets: ['@babel/preset-env'],
         plugins: ['@babel/plugin-proposal-class-properties'],

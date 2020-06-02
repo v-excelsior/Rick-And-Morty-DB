@@ -42,10 +42,14 @@ export default {
     },
     methods: {
         changePage(value) {
-            if ((value === 'next')) {
-                this.pageNumber === 30 ? (this.pageNumber = 1) : this.pageNumber++
+            if (value === 'next') {
+                this.pageNumber === 30
+                    ? (this.pageNumber = 1)
+                    : this.pageNumber++
             } else {
-                this.pageNumber === 1 ? (this.pageNumber = 30) : this.pageNumber--
+                this.pageNumber === 1
+                    ? (this.pageNumber = 30)
+                    : this.pageNumber--
             }
         },
         async getInfo() {
@@ -58,7 +62,6 @@ export default {
         //     this.personsAtPage = await infoService.getTest()
         //     this.activePerson = this.personsAtPage[0]
         // },
-
     },
     beforeMount() {
         //this.getTest()
