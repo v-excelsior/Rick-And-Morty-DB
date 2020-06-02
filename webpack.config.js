@@ -102,7 +102,6 @@ module.exports = {
     mode: 'development',
     entry: {
         main: ['@babel/polyfill', './index.js'],
-        anal: './anal.ts',
     },
     output: {
         filename: filename('js'),

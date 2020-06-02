@@ -1,14 +1,14 @@
 <template>
-    <New :title="title" />
+    <MainPage :title="title" />
 </template>
 
 <script>
-import New from './components/New.vue'
+import MainPage from './components/MainPage.vue'
 
 export default {
     name: 'App',
     components: {
-        New,
+        MainPage,
     },
     data() {
         return {
