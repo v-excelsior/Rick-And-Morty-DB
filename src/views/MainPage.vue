@@ -3,8 +3,9 @@
         <h1 class="header">
             Rick and Morty DB
         </h1>
-        <button @click="changePage('next')">Next</button>
         <button @click="changePage('prev')">Prev</button>
+        <button @click="changePage('next')">Next</button>
+
         <div class="list" v-if="personsAtPage.length">
             <PersonCard
                 class="list__card"
@@ -22,8 +23,8 @@
 
 <script>
 import { infoService } from '../services'
-import PersonCard from './PersonCard.vue'
-import ActiveCard from './ActiveCard.vue'
+import PersonCard from '../components/PersonCard.vue'
+import ActiveCard from '../components/ActiveCard.vue'
 export default {
     name: 'MainPage',
     components: {
@@ -76,7 +77,5 @@ export default {
 </script>
 
 <style>
-.center {
-    text-align: center;
-}
+
 </style>

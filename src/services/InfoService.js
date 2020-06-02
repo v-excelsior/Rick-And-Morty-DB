@@ -12,6 +12,14 @@ export class InfoService {
                 throw new Error(err)
             })
     }
+    getPersonsById(id) {
+        return axios
+            .get(this.http + 'api/character/' + id)
+            .then(res => res.data)
+            .catch(err => {
+                throw new Error(err)
+            })
+    }
     // getTest(){
     //     return axios
     //         .get('https://rickandmortyapi.com/api/character/?name=r')

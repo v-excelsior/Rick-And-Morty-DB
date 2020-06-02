@@ -10,6 +10,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
+
 const isProd = !isDev
 
 const filename = ext => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`)
@@ -89,7 +90,7 @@ const plugins = () => {
         }),
         new VueLoaderPlugin(),
     ]
-    // on that when analizer needed after each build
+    // turn on that when analizer needed after each build
     // if (isProd) {
     //     base.push(new BundleAnalyzerPlugin())
     // }
@@ -110,7 +111,6 @@ module.exports = {
         extensions: ['.js', '.json', '.svg'],
         alias: {
             // just a alias for path
-            '@models': path.resolve(__dirname, 'src/models'),
             '@': path.resolve(__dirname, 'src'),
         },
     },

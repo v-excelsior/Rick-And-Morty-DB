@@ -1,20 +1,14 @@
 <template>
-    <MainPage :title="title" />
+    <div>
+        <router-link to="/dist/RandomPerson">Random</router-link>
+        <router-link to="/dist">Main</router-link>
+        <router-view />
+    </div>
 </template>
 
 <script>
-import MainPage from './components/MainPage.vue'
-
 export default {
     name: 'App',
-    components: {
-        MainPage,
-    },
-    data() {
-        return {
-        }
-    },
 }
 </script>
-<style lang="scss">
-</style>
+<style lang="scss"></style>
