@@ -1,0 +1,1 @@
+.person-card{padding:5px;max-width:160px;border:none}.person-card__name{font-size:12px}.card-body{display:flex;align-items:center;justify-content:center;padding:0}.active-person__image{border-radius:10px}@media(max-width:991px){.active-person__image{object-fit:contain;width:200px}}.search-form{display:flex}.search-form__input{width:100%}

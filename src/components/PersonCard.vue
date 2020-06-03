@@ -1,11 +1,14 @@
 <template>
-    <div v-on:click="$emit('newActive', person)" class="person-card">
-        <b-card :img-src="person.image" img-top tag="article">
-            <p class="d-none d-sm-block  person-card__name m-0 text-center ">
-                {{ person.name }}
-            </p>
-        </b-card>
-    </div>
+    <b-card
+        @click="$emit('newActive', person)"
+        class="person-card  text-white bg-dark"
+        :img-src="person.image"
+        img-top
+    >
+        <p class="d-none d-sm-block  person-card__name m-0 text-center ">
+            {{ person.name }}
+        </p>
+    </b-card>
 </template>
 
 <script>
@@ -26,6 +29,9 @@ export default {
 <style lang="scss">
 @import '@/styles/modules/PersonCard.scss';
 .card-body {
-    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 </style>

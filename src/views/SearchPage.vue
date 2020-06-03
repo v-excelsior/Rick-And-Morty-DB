@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <b-form class="search-form">
+    <div class='container'>
+        <b-form class="search-form mb-3 mt-3">
             <b-form-input
                 v-model.lazy="characterName"
                 :state="characterName.length ? null : false"
@@ -20,18 +20,20 @@
                 size="sm"
             ></b-form-select>
         </b-form>
-        <div class="list" v-if="foundPeople.length">
-            <person-card
-                class="list__card"
-                v-for="person in foundPeople"
-                :person="person"
-                :key="person.id"
-                @newActive="activePerson = $event"
-            />
-        </div>
-        <div v-else>{{ foundPeople }}</div>
-        <div class="active-person" v-if="activePerson.name">
-            <active-card :person="activePerson" />
+
+        <div
+            class="d-block d-md-flex align-items-start flex-column flex-md-row"
+        >
+            <active-card v-if="activePerson.name" :person="activePerson" class='d-flex d-md-block'/>
+            <div class="list" v-if="foundPeople.length">
+                <person-card
+                    class="list__card"
+                    v-for="person in foundPeople"
+                    :person="person"
+                    :key="person.id"
+                    @newActive="activePerson = $event"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -94,7 +96,7 @@ export default {
         },
     },
     beforeMount() {
-        this.search(this.filter)
+        this.search('j')
     },
     watch: {
         searchParameters: {
@@ -111,7 +113,7 @@ export default {
 .search-form {
     display: flex;
     &__input {
-        width: 100%;
+        width: 100%; //bullshit
     }
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class='container'>
         <b-button size="sm" @click="getRandomPerson()" variant="outline-dark"
             >Random</b-button
         >
-        <div class="active-person" v-if="randomPerson.name">
-            <ActiveCard :person="randomPerson" />
+        <div class="active-person " v-if="randomPerson.name">
+            <ActiveCard :person="randomPerson" class='d-block d-md-flex' />
         </div>
     </div>
 </template>
@@ -38,5 +38,9 @@ export default {
     },
 }
 </script>
-<style>
+<style lang='scss'>
+.custom-container{
+    display: flex;
+    margin: 0 auto;
+}
 </style>

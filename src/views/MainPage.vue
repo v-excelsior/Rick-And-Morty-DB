@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div class="control-wrapper">
             <button class="button button_custom" @click="changePage('prev')">
                 Prev
@@ -8,18 +8,23 @@
                 Next
             </button>
         </div>
-
-        <div class="list" v-if="personsAtPage.length">
-            <PersonCard
-                class="list__card"
-                v-for="person in personsAtPage"
-                :person="person"
-                :key="person.id"
-                @newActive="activePerson = $event"
+        <div
+            class="d-block d-md-flex align-items-start flex-column flex-md-row"
+        >
+            <active-card
+                v-if="activePerson.name"
+                :person="activePerson"
+                class="d-flex d-md-block"
             />
-        </div>
-        <div class="active-person" v-if="activePerson.name">
-            <ActiveCard :person="activePerson" />
+            <div class="list" v-if="personsAtPage.length">
+                <person-card
+                    class="list__card"
+                    v-for="person in personsAtPage"
+                    :person="person"
+                    :key="person.id"
+                    @newActive="activePerson = $event"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -75,7 +80,7 @@ export default {
 </script>
 
 <style lang="scss">
-.control-wrapper{
+.control-wrapper {
     display: flex;
 }
 .button {
@@ -83,7 +88,10 @@ export default {
     border: none;
     outline: none;
     height: 40px;
-    &_custom {
-    }
+}
+.list{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
 }
 </style>
