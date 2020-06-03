@@ -19,9 +19,9 @@ export default {
         },
     },
     watch: {
-        person() {
-        //    console.log(this.person)
-        },
+        // person() {
+        //     console.log(this.person)
+        // },
     },
 }
 </script>

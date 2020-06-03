@@ -20,14 +20,14 @@ export class InfoService {
                 throw new Error(err)
             })
     }
-    // search(filter){
-    //     return axios
-    //         .get(this.http + '?name=' + filter)
-    //         .then(res => res.data)
-    //         .catch(err => {
-    //             throw new Error(err)
-    //         })
-    // }
+    search(filter){
+        return axios
+            .get(this.http + '?name=' + filter)
+            .then(res => res.data.results)
+            .catch(err => {
+                throw new Error(err)
+            })
+    }
     // getTest(){
     //     return axios
     //         .get('https://rickandmortyapi.com/api/character/?name=r')

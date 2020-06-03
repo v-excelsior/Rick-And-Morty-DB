@@ -15,6 +15,10 @@ export default new Router({
             component: () => import('./views/RandomPerson.vue'),
         },
         {
+            path: '/dist/SearchPage',
+            component: () => import('./views/SearchPage.vue'),
+        },
+        {
             // instead 404 page
             path: '/*',
             redirect: '/dist',

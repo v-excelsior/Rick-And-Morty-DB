@@ -1,7 +1,8 @@
 <template>
     <div>
-        <router-link to="/dist/RandomPerson">Random</router-link>
         <router-link to="/dist">Main</router-link>
+        <router-link to="/dist/RandomPerson">Random</router-link>
+        <router-link to="/dist/SearchPage">Search</router-link>
         <router-view />
     </div>
 </template>

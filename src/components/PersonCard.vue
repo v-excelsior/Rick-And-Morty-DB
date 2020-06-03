@@ -1,7 +1,10 @@
 <template>
-    <div v-on:click="$emit('newActive',person)">
-        <p class="card-name">{{ person.name }}</p>
-        <img class="card-image" :src="person.image" />
+    <div v-on:click="$emit('newActive', person)" class="person-card">
+        <b-card :img-src="person.image" img-top tag="article">
+            <b-card-text class="d-none d-sm-block  person-card__name m-0 text-center ">
+                {{ person.name }}
+            </b-card-text>
+        </b-card>
     </div>
 </template>
 
@@ -19,3 +22,9 @@ export default {
     // },
 }
 </script>
+<style lang="scss">
+@import '@/styles/modules/PersonCard.scss';
+.card-body {
+    padding: 3px;
+}
+</style>

@@ -2,18 +2,4 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    &__card {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        width: 100px;
-        .card-name{
-            font-size: 10px;
-        }
-        .card-image{
-            align-self: flex-end;
-            width: 100px;
-            height: 100px;
-        }
-    }
 }

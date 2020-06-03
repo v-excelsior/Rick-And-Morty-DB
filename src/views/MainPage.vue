@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div>
         <h1 class="header">
             Rick and Morty DB
         </h1>

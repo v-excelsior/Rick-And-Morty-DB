@@ -1,10 +1,12 @@
 <template>
-    <div class="main">
+    <div>
         <h1 class="header">
             Random Person
         </h1>
 
-        <b-button size="sm" @click="getRandomPerson()" variant="outline-dark">Random</b-button>
+        <b-button size="sm" @click="getRandomPerson()" variant="outline-dark"
+            >Random</b-button
+        >
         <div class="active-person" v-if="randomPerson.name">
             <ActiveCard :person="randomPerson" />
         </div>
@@ -12,14 +14,14 @@
 </template>
 
 <script>
-import { BButton } from 'bootstrap-vue'
+
+
 import { infoService } from '../services'
 import ActiveCard from '../components/ActiveCard.vue'
 export default {
     name: 'RandomPerson',
     components: {
         ActiveCard,
-        BButton
     },
     data() {
         return {

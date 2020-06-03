@@ -1,0 +1,12 @@
+.person-card {
+    width: 140px;
+    &__name {
+        font-size: 10px;
+    }
+    .card-image {
+        align-self: flex-end;
+        width: 120px;
+        height: 120px;
+        
+    }
+}
