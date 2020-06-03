@@ -1,14 +1,13 @@
 <template>
     <div>
-        <h1 class="header">
-            Rick and Morty DB
-        </h1>
-        <b-button size="sm" variant="outline-dark" @click="changePage('prev')"
-            >Prev</b-button
-        >
-        <b-button size="sm" variant="outline-dark" @click="changePage('next')"
-            >Next</b-button
-        >
+        <div class="control-wrapper">
+            <button class="button button_custom" @click="changePage('prev')">
+                Prev
+            </button>
+            <button class="button button_custom" @click="changePage('next')">
+                Next
+            </button>
+        </div>
 
         <div class="list" v-if="personsAtPage.length">
             <PersonCard
@@ -29,13 +28,11 @@
 import { infoService } from '../services'
 import PersonCard from '../components/PersonCard.vue'
 import ActiveCard from '../components/ActiveCard.vue'
-import { BButton } from 'bootstrap-vue'
 export default {
     name: 'MainPage',
     components: {
         PersonCard,
         ActiveCard,
-        BButton
     },
     data() {
         return {
@@ -65,13 +62,8 @@ export default {
             )
             this.activePerson = this.personsAtPage[0]
         },
-        // async getTest() {
-        //     this.personsAtPage = await infoService.getTest()
-        //     this.activePerson = this.personsAtPage[0]
-        // },
     },
     beforeMount() {
-        //this.getTest()
         this.getInfo()
     },
     watch: {
@@ -82,4 +74,16 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.control-wrapper{
+    display: flex;
+}
+.button {
+    flex: 1 1 auto;
+    border: none;
+    outline: none;
+    height: 40px;
+    &_custom {
+    }
+}
+</style>

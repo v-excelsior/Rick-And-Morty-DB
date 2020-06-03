@@ -1,6 +1,7 @@
 <template>
     <div>
         <HeaderComponent />
+        <div class="spacer"></div>
         <transition name="fade">
             <router-view />
         </transition>
@@ -17,6 +18,9 @@ export default {
 }
 </script>
 <style lang="scss">
+.spacer {
+    height: 58px;
+}
 .fade-enter-active,
 .fade-leave-active {
     position: absolute;

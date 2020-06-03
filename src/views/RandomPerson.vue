@@ -1,9 +1,5 @@
 <template>
     <div>
-        <h1 class="header">
-            Random Person
-        </h1>
-
         <b-button size="sm" @click="getRandomPerson()" variant="outline-dark"
             >Random</b-button
         >
@@ -21,7 +17,7 @@ export default {
     name: 'RandomPerson',
     components: {
         ActiveCard,
-        BButton
+        BButton,
     },
     data() {
         return {
@@ -42,5 +38,5 @@ export default {
     },
 }
 </script>
-
-<style></style>
+<style>
+</style>

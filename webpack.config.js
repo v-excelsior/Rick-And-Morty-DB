@@ -135,7 +135,14 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpeg)$/,
-                use: ['file-loader'],
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            esModule: false,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(ttf|woff)$/,
@@ -145,14 +152,6 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: jsLoaders(),
-            },
-            {
-                test: /\.ts$/,
-                exclude: /node_modules/,
-                loader: {
-                    loader: 'babel-loader',
-                    options: babelOptions('@babel/preset-typescript'),
-                },
             },
             {
                 test: /\.vue$/,

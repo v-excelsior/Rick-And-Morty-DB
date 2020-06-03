@@ -1,8 +1,5 @@
 <template>
     <div>
-        <h1 class="header">
-            Search
-        </h1>
         <b-form class="search-form">
             <b-form-input
                 v-model.lazy="characterName"
