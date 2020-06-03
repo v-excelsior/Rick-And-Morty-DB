@@ -14,14 +14,14 @@
 </template>
 
 <script>
-
-
 import { infoService } from '../services'
+import { BButton } from 'bootstrap-vue'
 import ActiveCard from '../components/ActiveCard.vue'
 export default {
     name: 'RandomPerson',
     components: {
         ActiveCard,
+        BButton
     },
     data() {
         return {

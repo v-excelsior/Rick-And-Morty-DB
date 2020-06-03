@@ -3,8 +3,12 @@
         <h1 class="header">
             Rick and Morty DB
         </h1>
-        <button @click="changePage('prev')">Prev</button>
-        <button @click="changePage('next')">Next</button>
+        <b-button size="sm" variant="outline-dark" @click="changePage('prev')"
+            >Prev</b-button
+        >
+        <b-button size="sm" variant="outline-dark" @click="changePage('next')"
+            >Next</b-button
+        >
 
         <div class="list" v-if="personsAtPage.length">
             <PersonCard
@@ -25,11 +29,13 @@
 import { infoService } from '../services'
 import PersonCard from '../components/PersonCard.vue'
 import ActiveCard from '../components/ActiveCard.vue'
+import { BButton } from 'bootstrap-vue'
 export default {
     name: 'MainPage',
     components: {
         PersonCard,
         ActiveCard,
+        BButton
     },
     data() {
         return {
@@ -76,6 +82,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

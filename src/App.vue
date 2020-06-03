@@ -1,15 +1,29 @@
 <template>
     <div>
-        <router-link to="/dist">Main</router-link>
-        <router-link to="/dist/RandomPerson">Random</router-link>
-        <router-link to="/dist/SearchPage">Search</router-link>
-        <router-view />
+        <HeaderComponent />
+        <transition name="fade">
+            <router-view />
+        </transition>
     </div>
 </template>
 
 <script>
+import HeaderComponent from '@/components/HeaderComponent.vue'
 export default {
     name: 'App',
+    components: {
+        HeaderComponent,
+    },
 }
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+    position: absolute;
+    transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+</style>

@@ -58,6 +58,7 @@ const optimization = () => {
     //generate optimization objects
     const config = {
         splitChunks: {
+            minSize: 30000,
             chunks: 'all', //optimization code(no reply), vendors is common between files
         },
     }

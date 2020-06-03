@@ -43,11 +43,15 @@
 import { infoService } from '../services'
 import PersonCard from '../components/PersonCard.vue'
 import ActiveCard from '../components/ActiveCard.vue'
+import { BForm, BFormInput, BFormSelect } from 'bootstrap-vue'
 export default {
     name: 'SearchPage',
     components: {
         PersonCard,
         ActiveCard,
+        BForm,
+        BFormInput,
+        BFormSelect,
     },
     data() {
         return {
