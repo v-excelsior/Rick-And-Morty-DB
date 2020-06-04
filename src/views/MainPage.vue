@@ -1,13 +1,13 @@
 <template>
     <div class="container">
         <div class="control-wrapper mt-3 mb-2">
-            <button class="button button_half" @click="changePage('prev')">
+            <button class="button button-half" @click="changePage('prev')">
                 Prev
             </button>
             <span class="page align-self-center" v-text="pageNumber">
                 {{ pageNumber }}
             </span>
-            <button class="button button_half" @click="changePage('next')">
+            <button class="button button-half" @click="changePage('next')">
                 Next
             </button>
         </div>
@@ -19,7 +19,7 @@
                 <active-card
                     v-if="activePerson.name"
                     :person="activePerson"
-                    class="d-flex flex-row flex-md-column m-0 mb-2 mr-md-2 "
+                    class="d-flex flex-row flex-md-column m-0 mb-2 mr-md-2"
                 />
                 <div class="list" v-if="personsAtPage.length">
                     <person-card
@@ -104,10 +104,10 @@ export default {
     &:hover {
         background-color: lighten($color: #343a40, $amount: 10%);
     }
-    &_half {
+    &-half {
         width: calc(50% - 20px);
     }
-    &_full {
+    &-full {
         width: 100%;
     }
 }

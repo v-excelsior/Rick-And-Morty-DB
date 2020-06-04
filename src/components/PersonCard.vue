@@ -28,7 +28,6 @@ export default {
 </script>
 <style lang="scss">
 @import '@/styles/modules/PersonCard.scss';
-
 .card-body {
     display: flex;
     align-items: center;

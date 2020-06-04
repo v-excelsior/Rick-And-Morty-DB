@@ -3,7 +3,9 @@
         <HeaderComponent />
         <div class="spacer"></div>
         <transition name="fade" mode="out-in">
-            <router-view />
+            <keep-alive>
+                <router-view />
+            </keep-alive>
         </transition>
     </div>
 </template>
@@ -20,6 +22,9 @@ export default {
 <style lang="scss">
 .spacer {
     height: 58px;
+}
+.fade-move {
+  transition: transform 0.3s;
 }
 .fade-enter-active,
 .fade-leave-active {

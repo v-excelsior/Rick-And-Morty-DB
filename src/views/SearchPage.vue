@@ -24,7 +24,7 @@
         <div
             class="d-block d-md-flex align-items-start flex-column flex-md-row"
         >
-            <active-card v-if="activePerson.name" :person="activePerson" class='d-flex d-md-block'/>
+            <active-card v-if="activePerson.name" :person="activePerson" class='d-flex flex-row flex-md-column m-0 mb-2 mr-md-2'/>
             <div class="list" v-if="foundPeople.length">
                 <person-card
                     class="list__card"

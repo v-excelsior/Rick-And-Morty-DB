@@ -11,7 +11,7 @@ export default new Router({
             component: () => import('./views/MainPage.vue'),
         },
         {
-            path: '/dist/RandomPerson',
+            path: '/dist/RandomPage',
             component: () => import('./views/RandomPage.vue'),
         },
         {

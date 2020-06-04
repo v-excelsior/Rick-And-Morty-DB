@@ -8,7 +8,7 @@
                 <b-nav-item to="/dist" exact active-class="link-active"
                     >Main</b-nav-item
                 >
-                <b-nav-item to="/dist/RandomPerson" active-class="link-active"
+                <b-nav-item to="/dist/RandomPage" active-class="link-active"
                     >Random</b-nav-item
                 >
                 <b-nav-item to="/dist/SearchPage" active-class="link-active"

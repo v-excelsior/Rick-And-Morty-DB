@@ -1,29 +1,30 @@
 <template>
-    <div class="container">
-        <b-button size="sm" @click="getRandomPerson()" variant="outline-dark"
-            >Random</b-button
-        >
-        <transition name="fade" mode="out-in">
-            <div class="active-person " v-if="randomPerson.name" :key="randomPerson.name">
-                <ActiveCard :person="randomPerson" class="d-block d-md-flex"/>
-            </div>
-        </transition>
+    <div class="random-page p-2">
+        <button class="button button-full" @click="getRandomPerson()">
+            Random
+        </button>
+        <transition-group tag="div" name="fade" v-if="randomPersons.length">
+            <ActiveCard
+                v-for="person in randomPersons"
+                :person="person"
+                class="d-flex random-person mx-auto m-2"
+                :key="person.name"
+            />
+        </transition-group>
     </div>
 </template>
 
 <script>
 import { infoService } from '../services'
-import { BButton } from 'bootstrap-vue'
 import ActiveCard from '../components/ActiveCard.vue'
 export default {
     name: 'RandomPage',
     components: {
         ActiveCard,
-        BButton,
     },
     data() {
         return {
-            randomPerson: {},
+            randomPersons: [],
         }
     },
     props: {
@@ -32,11 +33,28 @@ export default {
     methods: {
         async getRandomPerson() {
             let id = Math.round(Math.random() * (591 - 1) + 1)
-            this.randomPerson = await infoService.getPersonsById(id)
+            let current = await infoService.getPersonsById(id)
+            this.randomPersons.unshift(current)
+            if (this.randomPersons.length > 3) {
+                console.log('cathc')
+                setTimeout(() => {
+                    this.randomPersons.pop()
+                }, 300)
+            }
         },
     },
     beforeMount() {
         this.getRandomPerson()
+    },
+    watch: {
+        $route(to, from) {
+            if (this.$route.path === '/dist/RandomPage') {
+                console.log('foo')
+                document.body.style.overflowY = 'hidden'
+            } else {
+                document.body.style.overflowY = ''
+            }
+        },
     },
 }
 </script>
@@ -45,5 +63,4 @@ export default {
     display: flex;
     margin: 0 auto;
 }
-
 </style>

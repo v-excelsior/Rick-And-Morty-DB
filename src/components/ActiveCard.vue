@@ -3,10 +3,10 @@
         <div class="active-person p-2 text-white bg-dark">
             <img class="active-person__image" :src="person.image" />
             <div class="active-person__info">
-                <p class="active-person__name bold mt-2 mb-2">
+                <p class="active-person__name bold mt-0 mt-md-2 mb-2">
                     {{ person.name }}
                 </p>
-                <p class="active-person__text active-person__status" >
+                <p class="active-person__text active-person__status">
                     <span
                         class="active-person__status-icon"
                         ref="statusIcon"
@@ -70,6 +70,28 @@ export default {
 .fade-leave-to {
     opacity: 0;
 }
+.active-person.random-person {
+    max-width: 600px;
+    .active-person {
+        &__image {
+            max-width: 180px;
+            margin-right: 20px;
+        }
+        &__name{
+            margin-top: 0 !important;
+        }
+        &__info {
+            padding: 0px;
+        }
+    }
+}
+@media screen and (max-width: 991px) {
+    .active-person.random-person {
+        .active-person__image {
+            margin-right: 10px;
+        }
+    }
+}
 .active-person {
     border-radius: 10px;
     font-size: 14px;
@@ -113,7 +135,7 @@ export default {
             width: 160px;
         }
         &__info {
-            padding: 0 10px;
+            padding: 0 15px;
         }
     }
 }
@@ -125,7 +147,6 @@ export default {
         font-size: 12px;
         &__info {
             height: 120px;
-
             overflow-y: scroll;
         }
     }
