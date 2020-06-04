@@ -70,21 +70,6 @@ export default {
 .fade-leave-to {
     opacity: 0;
 }
-.active-person.random-person {
-    max-width: 600px;
-    .active-person {
-        &__image {
-            max-width: 180px;
-            margin-right: 20px;
-        }
-        &__name{
-            margin-top: 0 !important;
-        }
-        &__info {
-            padding: 0px;
-        }
-    }
-}
 @media screen and (max-width: 991px) {
     .active-person.random-person {
         .active-person__image {

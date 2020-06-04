@@ -1,13 +1,13 @@
 <template>
     <div class="random-page p-2">
-        <button class="button button-full" @click="getRandomPerson()">
+        <button class="button button-full mb-2" @click="getRandomPerson()">
             Random
         </button>
         <transition-group tag="div" name="fade" v-if="randomPersons.length">
             <ActiveCard
                 v-for="person in randomPersons"
                 :person="person"
-                class="d-flex random-person mx-auto m-2"
+                class="d-flex mb-2"
                 :key="person.name"
             />
         </transition-group>
@@ -59,8 +59,22 @@ export default {
 }
 </script>
 <style lang="scss">
-.custom-container {
+.random-page {
+    max-width: 600px;
     display: flex;
+    flex-direction: column;
     margin: 0 auto;
+    .active-person {
+        &__image {
+            max-width: 180px;
+            margin-right: 20px;
+        }
+        &__name {
+            margin-top: 0 !important;
+        }
+        &__info {
+            padding: 0px;
+        }
+    }
 }
 </style>
