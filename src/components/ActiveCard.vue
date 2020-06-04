@@ -82,6 +82,7 @@ export default {
     font-size: 14px;
     &__info {
         width: 100%;
+        max-width: 300px;
     }
     &__status {
         display: flex;

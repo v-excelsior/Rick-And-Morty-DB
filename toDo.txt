@@ -1,0 +1,16 @@
+# search with filters
+# styles with bootstrap
+# minimize bundle
+# list component
+# set min package size
+# fix start input value
+# handle search error
+# fix button focuse (now important at outline property)
+# add vuex
+
+ должно хватить
+
+Konstantin Sedykh
+Дима
+Подскажите как эту шнягу убрать
+попробуй 
