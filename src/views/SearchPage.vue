@@ -47,8 +47,10 @@
                     :person="activePerson"
                     class="d-flex flex-row flex-md-column m-0 mb-2 mr-md-2"
                 />
-                <p v-else class="text-center mt-5" >No characters with this parameters</p>
-                <div class="list" v-if="foundPeople.length" >
+                <p v-else class="text-center w-100 mt-2 mt-lg-5">
+                    No characters with this parameters
+                </p>
+                <div class="list" v-if="foundPeople.length">
                     <person-card
                         class="list__card"
                         v-for="person in foundPeople"
