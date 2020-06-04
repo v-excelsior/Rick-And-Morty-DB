@@ -90,10 +90,4 @@ export default {
     display: flex;
     justify-content: space-between;
 }
-
-.list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-}
 </style>

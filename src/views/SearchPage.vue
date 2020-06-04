@@ -1,40 +1,64 @@
 <template>
-    <div class='container'>
-        <b-form class="search-form mb-3 mt-3">
-            <b-form-input
-                v-model.lazy="characterName"
-                :state="characterName.length ? null : false"
-                trim
-                lazy
-                size="sm"
-                placeholder="Enter name character"
-            ></b-form-input>
-            <b-form-select
-                v-model="selected.status"
-                :options="statusOptions"
-                size="sm"
-            ></b-form-select>
-            <b-form-select
-                v-model="selected.gender"
-                :options="genderOptions"
-                size="sm"
-            ></b-form-select>
-        </b-form>
-
-        <div
-            class="d-block d-md-flex align-items-start flex-column flex-md-row"
+    <div class="container">
+        <b-form
+            @submit.prevent=""
+            class="search-form d-flex flex-column flex-md-row mb-3 mt-3"
         >
-            <active-card v-if="activePerson.name" :person="activePerson" class='d-flex flex-row flex-md-column m-0 mb-2 mr-md-2'/>
-            <div class="list" v-if="foundPeople.length">
-                <person-card
-                    class="list__card"
-                    v-for="person in foundPeople"
-                    :person="person"
-                    :key="person.id"
-                    @newActive="activePerson = $event"
-                />
+            <div class="wrapper wrapper-input">
+                <label class="mb-0 input p-1" for="input-name"
+                    >Character name:<b-form-input
+                        v-model.lazy="characterName"
+                        id="input-name"
+                        trim
+                        lazy
+                        size="sm"
+                        placeholder="Enter name here"
+                    ></b-form-input
+                ></label>
             </div>
-        </div>
+            <div class="wrapper wrapper-select d-flex">
+                <label class="mb-0 input p-1" for="select-status"
+                    >Status:<b-form-select
+                        id="select-status"
+                        v-model="selected.status"
+                        :options="statusOptions"
+                        size="sm"
+                    ></b-form-select
+                ></label>
+
+                <label class="mb-0 input p-1" for="select-gender"
+                    >Gender:
+                    <b-form-select
+                        id="select-gender"
+                        v-model="selected.gender"
+                        :options="genderOptions"
+                        size="sm"
+                    ></b-form-select
+                ></label>
+            </div>
+        </b-form>
+        <transition name="fade" mode="out-in">
+            <div
+                class="d-block d-md-flex align-items-start flex-column flex-md-row p-1"
+                :key="filter"
+            >
+                <active-card
+                    v-if="foundPeople.length"
+                    :person="activePerson"
+                    class="d-flex flex-row flex-md-column m-0 mb-2 mr-md-2"
+                />
+                <p v-else class="text-center mt-5" >No characters with this parameters</p>
+                <div class="list" v-if="foundPeople.length" >
+                    <person-card
+                        class="list__card"
+                        v-for="person in foundPeople"
+                        :person="person"
+                        :key="person.id"
+                        @newActive="activePerson = $event"
+                    />
+                </div>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -59,13 +83,13 @@ export default {
             foundPeople: [],
             activePerson: {},
             statusOptions: [
-                { value: null, text: 'none' },
+                { value: null, text: '' },
                 { value: 'alive', text: 'Alive' },
                 { value: 'dead', text: 'Dead' },
                 { value: 'unknown', text: 'Unknown' },
             ],
             genderOptions: [
-                { value: null, text: 'none' },
+                { value: null, text: '' },
                 { value: 'female', text: 'Female' },
                 { value: 'male', text: 'Male' },
                 { value: 'genderless', text: 'Genderless' },
@@ -91,8 +115,14 @@ export default {
     },
     methods: {
         async search(filter) {
-            this.foundPeople = await infoService.search(filter)
-            this.activePerson = this.foundPeople[0]
+            try {
+                let data = await infoService.search(filter)
+                this.foundPeople = data
+                this.activePerson = this.foundPeople[0]
+            } catch (err) {
+                console.log(err)
+                this.foundPeople = []
+            }
         },
     },
     beforeMount() {
@@ -110,10 +140,18 @@ export default {
 </script>
 
 <style lang="scss">
-.search-form {
-    display: flex;
-    &__input {
-        width: 100%; //bullshit
+.input {
+    flex-grow: 1;
+    width: 100%;
+}
+@media screen and (min-width: 767px) {
+    .wrapper {
+        &-input {
+            width: 40%;
+        }
+        &-select {
+            width: 60%;
+        }
     }
 }
 </style>

@@ -17,6 +17,15 @@ export default {
     components: {
         HeaderComponent,
     },
+    watch: {
+        $route(to, from) {
+            if (this.$route.path === '/dist/RandomPage') {
+                document.body.style.overflowY = 'hidden'
+            } else {
+                document.body.style.overflowY = ''
+            }
+        },
+    },  
 }
 </script>
 <style lang="scss">
@@ -45,7 +54,7 @@ export default {
     height: 58px;
 }
 .fade-move {
-  transition: transform 0.3s;
+    transition: transform 0.3s;
 }
 .fade-enter-active,
 .fade-leave-active {

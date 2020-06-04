@@ -36,7 +36,6 @@ export default {
             let current = await infoService.getPersonsById(id)
             this.randomPersons.unshift(current)
             if (this.randomPersons.length > 3) {
-                console.log('cathc')
                 setTimeout(() => {
                     this.randomPersons.pop()
                 }, 300)
@@ -45,16 +44,6 @@ export default {
     },
     beforeMount() {
         this.getRandomPerson()
-    },
-    watch: {
-        $route(to, from) {
-            if (this.$route.path === '/dist/RandomPage') {
-                console.log('foo')
-                document.body.style.overflowY = 'hidden'
-            } else {
-                document.body.style.overflowY = ''
-            }
-        },
     },
 }
 </script>
