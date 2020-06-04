@@ -1,9 +1,8 @@
-x<template>
-    <header>
-
+<template>
+    <header >
         <b-navbar type="dark" variant="dark" fixed="top" active="true">
-            <b-navbar-nav class="d-flex w-100">
-                <b-navbar-brand class='d-none d-sm-block'>
+            <b-navbar-nav class="container  align-items-stretch w-100 p-0 pl-sm-3 pr-sm-2">
+                <b-navbar-brand class="d-none d-sm-block">
                     Rick and Morty DB
                 </b-navbar-brand>
                 <b-nav-item to="/dist" exact active-class="link-active"
@@ -47,7 +46,6 @@ export default {
 </script>
 <style lang="scss">
 .link-active {
-    color: rgba(255, 255, 255, 0.75);
     &::after {
         display: block;
         content: '';

@@ -1,11 +1,13 @@
 <template>
-    <div class='container'>
+    <div class="container">
         <b-button size="sm" @click="getRandomPerson()" variant="outline-dark"
             >Random</b-button
         >
-        <div class="active-person " v-if="randomPerson.name">
-            <ActiveCard :person="randomPerson" class='d-block d-md-flex' />
-        </div>
+        <transition name="fade" mode="out-in">
+            <div class="active-person " v-if="randomPerson.name" :key="randomPerson.name">
+                <ActiveCard :person="randomPerson" class="d-block d-md-flex"/>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -14,7 +16,7 @@ import { infoService } from '../services'
 import { BButton } from 'bootstrap-vue'
 import ActiveCard from '../components/ActiveCard.vue'
 export default {
-    name: 'RandomPerson',
+    name: 'RandomPage',
     components: {
         ActiveCard,
         BButton,
@@ -38,9 +40,10 @@ export default {
     },
 }
 </script>
-<style lang='scss'>
-.custom-container{
+<style lang="scss">
+.custom-container {
     display: flex;
     margin: 0 auto;
 }
+
 </style>

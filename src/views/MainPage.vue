@@ -1,31 +1,37 @@
 <template>
     <div class="container">
-        <div class="control-wrapper">
-            <button class="button button_custom" @click="changePage('prev')">
+        <div class="control-wrapper mt-3 mb-2">
+            <button class="button button_half" @click="changePage('prev')">
                 Prev
             </button>
-            <button class="button button_custom" @click="changePage('next')">
+            <span class="page align-self-center" v-text="pageNumber">
+                {{ pageNumber }}
+            </span>
+            <button class="button button_half" @click="changePage('next')">
                 Next
             </button>
         </div>
-        <div
-            class="d-block d-md-flex align-items-start flex-column flex-md-row"
-        >
-            <active-card
-                v-if="activePerson.name"
-                :person="activePerson"
-                class="d-flex d-md-block"
-            />
-            <div class="list" v-if="personsAtPage.length">
-                <person-card
-                    class="list__card"
-                    v-for="person in personsAtPage"
-                    :person="person"
-                    :key="person.id"
-                    @newActive="activePerson = $event"
+        <transition name="fade" mode="out-in">
+            <div
+                class="d-block d-md-flex align-items-start flex-column flex-md-row"
+                :key="pageNumber"
+            >
+                <active-card
+                    v-if="activePerson.name"
+                    :person="activePerson"
+                    class="d-flex flex-row flex-md-column m-0 mb-2 mr-md-2 "
                 />
+                <div class="list" v-if="personsAtPage.length">
+                    <person-card
+                        class="list__card"
+                        v-for="person in personsAtPage"
+                        :person="person"
+                        :key="person.id"
+                        @newActive="activePerson = $event"
+                    />
+                </div>
             </div>
-        </div>
+        </transition>
     </div>
 </template>
 
@@ -82,14 +88,30 @@ export default {
 <style lang="scss">
 .control-wrapper {
     display: flex;
+    justify-content: space-between;
 }
 .button {
-    flex: 1 1 auto;
     border: none;
     outline: none;
     height: 40px;
+    color: white;
+    transition: 0.3s;
+    background-color: #343a40;
+    border-radius: 5px;
+    &:focus {
+        outline: none;
+    }
+    &:hover {
+        background-color: lighten($color: #343a40, $amount: 10%);
+    }
+    &_half {
+        width: calc(50% - 20px);
+    }
+    &_full {
+        width: 100%;
+    }
 }
-.list{
+.list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;

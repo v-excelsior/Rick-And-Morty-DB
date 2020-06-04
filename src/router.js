@@ -12,7 +12,7 @@ export default new Router({
         },
         {
             path: '/dist/RandomPerson',
-            component: () => import('./views/RandomPerson.vue'),
+            component: () => import('./views/RandomPage.vue'),
         },
         {
             path: '/dist/SearchPage',

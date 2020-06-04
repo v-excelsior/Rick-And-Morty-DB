@@ -2,6 +2,12 @@
     padding: 5px;
     max-width:160px;
     border: none;
+    background-color: #343a40;
+    transition: 0.5s;
+    &:hover {
+        // background-color: lighten($color: #343a40, $amount: 20%);
+        transform: scale(1.05);
+    }
     &__name {
         font-size: 12px;
     }

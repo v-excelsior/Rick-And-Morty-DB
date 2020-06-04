@@ -1,7 +1,7 @@
 <template>
     <b-card
         @click="$emit('newActive', person)"
-        class="person-card  text-white bg-dark"
+        class="person-card  text-white"
         :img-src="person.image"
         img-top
     >
@@ -28,6 +28,7 @@ export default {
 </script>
 <style lang="scss">
 @import '@/styles/modules/PersonCard.scss';
+
 .card-body {
     display: flex;
     align-items: center;

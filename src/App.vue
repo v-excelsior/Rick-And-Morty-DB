@@ -2,7 +2,7 @@
     <div>
         <HeaderComponent />
         <div class="spacer"></div>
-        <transition name="fade">
+        <transition name="fade" mode="out-in">
             <router-view />
         </transition>
     </div>
@@ -23,14 +23,10 @@ export default {
 }
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.5s;
+    transition: opacity 0.1s;
 }
 .fade-enter,
 .fade-leave-to {
     opacity: 0;
-}
-.container-mine{
-    max-width: 1280px;
-    margin:0 auto;
 }
 </style>
