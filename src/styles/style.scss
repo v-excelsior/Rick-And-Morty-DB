@@ -1,5 +1,8 @@
-@import 'roboto.css';
-@import './views/viewsList.scss';
+@import 'fonts.scss';
+@import 'anim.scss';
+@import 'mixins.scss';
+@import '@/styles/modules/moduleList.scss';
+@import '@/styles/views/viewsList.scss';
 
 * {
     margin: 0;
@@ -7,7 +10,44 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.bold{
+.button {
+    border: none;
+    outline: none;
+    height: 40px;
+    color: white;
+    transition: 0.3s;
+    background-color: #343a40;
+    border-radius: 5px;
+    &:focus {
+        outline: none;
+    }
+    &:hover {
+        background-color: lighten($color: #343a40, $amount: 10%);
+    }
+    &-half {
+        width: calc(50% - 20px);
+    }
+    &-full {
+        width: 100%;
+    }
+}
+
+.spacer {
+    height: 58px;
+}
+
+.control-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+}
+
+.bold {
     letter-spacing: 1px;
     font-family: 'Roboto-Bold', sans-serif;
 }

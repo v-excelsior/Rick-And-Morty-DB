@@ -1,6 +1,6 @@
 .person-card {
     padding: 5px;
-    max-width:160px;
+    max-width: 160px;
     border: none;
     background-color: #343a40;
     transition: 0.2s;
@@ -12,4 +12,9 @@
         font-size: 12px;
     }
 }
-
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}

@@ -38,7 +38,7 @@ export default {
             if (this.randomPersons.length > 3) {
                 setTimeout(() => {
                     this.randomPersons.pop()
-                }, 300)
+                }, 500)
             }
         },
     },
@@ -47,23 +47,3 @@ export default {
     },
 }
 </script>
-<style lang="scss">
-.random-page {
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    .active-person {
-        &__image {
-            max-width: 180px;
-            margin-right: 20px;
-        }
-        &__name {
-            margin-top: 0 !important;
-        }
-        &__info {
-            padding: 0px;
-        }
-    }
-}
-</style>

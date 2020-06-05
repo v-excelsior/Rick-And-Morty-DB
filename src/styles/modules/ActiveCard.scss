@@ -1,0 +1,50 @@
+.active-person {
+    border-radius: 10px;
+    font-size: 14px;
+    @include screen(max, 480px) {
+        font-size: 12px;
+    }
+    &__info {
+        width: 100%;
+        max-width: 300px;
+        @include screen(max, 767px) {
+            padding: 0 15px;
+        }
+        @include screen(max, 480px) {
+            padding: 0 8px;
+            height: 120px;
+            overflow-y: scroll;
+        }
+    }
+    &__status {
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        &-icon {
+            height: 0.5rem;
+            width: 0.5rem;
+            margin-right: 0.375rem;
+            border-radius: 50%;
+        }
+    }
+    &__name {
+        font-size: 18px;
+    }
+    &__text {
+        margin: 0;
+    }
+    &__image {
+        border-radius: 5px;
+        width: 100%;
+        @include screen(max, 991px) {
+            border-radius: 5px;
+            height: auto;
+        }
+        @include screen(max, 767px) {
+            width: 160px;
+        }
+        @include screen(max, 480px) {
+            width: 120px;
+        }
+    }
+}

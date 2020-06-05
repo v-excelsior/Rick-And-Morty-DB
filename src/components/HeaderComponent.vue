@@ -44,14 +44,3 @@ export default {
     },
 }
 </script>
-<style lang="scss">
-.link-active {
-    &::after {
-        display: block;
-        content: '';
-        height: 2px;
-        width: 100%;
-        background-color: #6c757d;
-    }
-}
-</style>

@@ -21,9 +21,8 @@
                     :person="activePerson"
                     class="d-flex flex-row flex-md-column m-0 mb-2 mr-md-2"
                 />
-                <div class="list" v-if="personsAtPage.length">
+                <div class="grid" v-if="personsAtPage.length">
                     <person-card
-                        class="list__card"
                         v-for="person in personsAtPage"
                         :person="person"
                         :key="person.id"
@@ -84,10 +83,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-.control-wrapper {
-    display: flex;
-    justify-content: space-between;
-}
-</style>

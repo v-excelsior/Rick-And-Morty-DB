@@ -26,6 +26,7 @@ const cssLoaders = extra => {
         },
         'css-loader',
     ]
+
     if (extra) {
         loaders.push(extra)
     }
@@ -70,6 +71,9 @@ const optimization = () => {
 
 const plugins = () => {
     base = [
+        new MiniCssExtractPlugin({
+            filename: filename('css'),
+        }),
         new HTMLWebpackPlugin({
             //auto add tags with src
             template: './index.html',
@@ -85,9 +89,6 @@ const plugins = () => {
                     to: path.resolve(__dirname, 'dist'),
                 },
             ],
-        }),
-        new MiniCssExtractPlugin({
-            filename: filename('css'),
         }),
         new VueLoaderPlugin(),
     ]

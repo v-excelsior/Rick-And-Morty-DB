@@ -1,0 +1,17 @@
+@import '../mixins.scss';
+
+.input {
+    flex-grow: 1;
+    width: 100%;
+}
+
+@include screen(min, 767px) {
+    .wrapper {
+        &-input {
+            width: 40%;
+        }
+        &-select {
+            width: 60%;
+        }
+    }
+}

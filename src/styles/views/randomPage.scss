@@ -1,0 +1,21 @@
+.random-page {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    .active-person {
+        &__image {
+            max-width: 180px;
+            margin-right: 20px;
+            @include screen(max,480px){
+                margin-right: 8px;
+            }
+        }
+        &__name {
+            margin-top: 0 !important;
+        }
+        &__info {
+            padding: 0px;
+        }
+    }
+}

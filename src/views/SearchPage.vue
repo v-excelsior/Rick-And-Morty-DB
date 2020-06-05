@@ -50,9 +50,8 @@
                 <p v-else class="text-center w-100 mt-2 mt-lg-5">
                     No characters with this parameters
                 </p>
-                <div class="list" v-if="foundPeople.length">
+                <div class="grid" v-if="foundPeople.length">
                     <person-card
-                        class="list__card"
                         v-for="person in foundPeople"
                         :person="person"
                         :key="person.id"
@@ -140,20 +139,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss">
-.input {
-    flex-grow: 1;
-    width: 100%;
-}
-@media screen and (min-width: 767px) {
-    .wrapper {
-        &-input {
-            width: 40%;
-        }
-        &-select {
-            width: 60%;
-        }
-    }
-}
-</style>
