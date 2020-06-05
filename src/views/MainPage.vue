@@ -1,13 +1,15 @@
 <template>
     <div class="container">
         <div class="control-wrapper mt-3 mb-2">
-            <button class="button button-half" @click="changePage('prev')">
+            <button class="button button-half" @click="pageNumber--">
                 Prev
             </button>
-            <span class="page align-self-center" v-text="pageNumber">
-                {{ pageNumber }}
-            </span>
-            <button class="button button-half" @click="changePage('next')">
+            <input
+                type="number"
+                class="page-number text-center mx-2 bg-dark text-light"
+                v-model="pageNumber"
+            />
+            <button class="button button-half" @click="pageNumber++">
                 Next
             </button>
         </div>
@@ -48,24 +50,13 @@ export default {
         return {
             personsAtPage: [],
             activePerson: {},
-            pageNumber: 1,
+            pageNumber: 1, // that because input[type=number] return a string anyway
         }
     },
     props: {
         title: String,
     },
     methods: {
-        changePage(value) {
-            if (value === 'next') {
-                this.pageNumber === 30
-                    ? (this.pageNumber = 1)
-                    : this.pageNumber++
-            } else {
-                this.pageNumber === 1
-                    ? (this.pageNumber = 30)
-                    : this.pageNumber--
-            }
-        },
         async getInfo() {
             this.personsAtPage = await infoService.getPersonsAtPage(
                 this.pageNumber
@@ -78,6 +69,9 @@ export default {
     },
     watch: {
         pageNumber() {
+            if(this.pageNumber === '') this.pageNumber = 1 
+            if(this.pageNumber > 30) this.pageNumber = 1 
+            if(this.pageNumber < 1) this.pageNumber = 30 
             this.getInfo()
         },
     },
