@@ -58,13 +58,16 @@ const jsLoaders = () => {
 const optimization = () => {
     //generate optimization objects
     const config = {
+
         splitChunks: {
-            minSize: 30000,
             chunks: 'all', //optimization code(no reply), vendors is common between files
         },
     }
     if (isProd) {
-        config.minimizer = [new OptimizeCssAssetsPlugin(), new TerserPlugin()]
+        config.minimizer = [
+            new OptimizeCssAssetsPlugin(),
+            new TerserPlugin({ cache: true, parallel: true }),
+        ]
     }
     return config
 }
@@ -72,7 +75,10 @@ const optimization = () => {
 const plugins = () => {
     base = [
         new MiniCssExtractPlugin({
-            filename: filename('css'),
+            // prepend folder name
+            filename: 'style/' + filename('css'),
+            chunkFilename: 'style/' + filename('css'),
+            ignoreOrder: false,
         }),
         new HTMLWebpackPlugin({
             //auto add tags with src
@@ -106,7 +112,8 @@ module.exports = {
         main: ['@babel/polyfill', './index.js'],
     },
     output: {
-        filename: filename('js'),
+        filename: './js/' + filename('js'),
+        chunkFilename: './js/' + filename('js'),
         path: path.resolve(__dirname, 'dist'),
     },
     resolve: {
@@ -135,11 +142,12 @@ module.exports = {
                 use: cssLoaders('sass-loader'),
             },
             {
-                test: /\.(png|svg|jpeg)$/,
+                test: /\.(png|svg|jpe?g|gif)$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
+                            outputPath: 'img',
                             esModule: false,
                         },
                     },
@@ -147,7 +155,12 @@ module.exports = {
             },
             {
                 test: /\.(ttf|woff)$/,
-                use: ['file-loader'],
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        outputPath: 'fonts',
+                    },
+                },
             },
             {
                 test: /\.js$/,

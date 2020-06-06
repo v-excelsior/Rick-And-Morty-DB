@@ -2,3 +2,4 @@
 # set min package size
 # add vuex
 # handle search
+# tech list instead repo
