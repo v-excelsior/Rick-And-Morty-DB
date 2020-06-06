@@ -25,6 +25,15 @@
             width: 0.5rem;
             margin-right: 0.375rem;
             border-radius: 50%;
+            &.alive {
+                background-color: rgb(85, 204, 68);
+            }
+            &.dead {
+                background-color: rgb(214, 61, 46);
+            }
+            &.unknown {
+                background-color: rgb(158, 158, 158);
+            }
         }
     }
     &__name {

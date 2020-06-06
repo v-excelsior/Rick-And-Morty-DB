@@ -37,13 +37,13 @@ export default {
     },
     methods: {
         pickStatusColor() {
+            this.$refs.statusIcon.classList.remove('alive', 'dead', 'unknown')
             if (this.person.status == 'Alive') {
-                this.$refs.statusIcon.style.backgroundColor = 'rgb(85, 204, 68)'
+                this.$refs.statusIcon.classList.add('alive')
             } else if (this.person.status == 'Dead') {
-                this.$refs.statusIcon.style.backgroundColor = 'rgb(214, 61, 46)'
+                this.$refs.statusIcon.classList.add('dead')
             } else {
-                this.$refs.statusIcon.style.backgroundColor =
-                    'rgb(158, 158, 158)'
+                this.$refs.statusIcon.classList.add('unknown')
             }
         },
     },

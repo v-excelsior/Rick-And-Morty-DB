@@ -121,7 +121,7 @@ export default {
                 this.foundPeople = data
                 this.activePerson = this.foundPeople[0]
             } catch (err) {
-                console.log(err)
+                console.log(err.message)
                 this.foundPeople = []
             }
         },

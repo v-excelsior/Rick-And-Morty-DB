@@ -28,6 +28,11 @@ describe('Active card', () => {
     })
 
     it('render correctly', () => {
-        // expect(1).toBe(1)
+        expect(item.exists()).toBe(true)
+    })
+    it('status handling correstly', () => {
+        expect(item.find('.active-person__status-icon').classes())
+            .toEqual(["active-person__status-icon", "alive"])
+        //not toHave to test is havent dead/unknown classes'
     })
 })
