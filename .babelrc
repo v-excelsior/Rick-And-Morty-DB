@@ -4,8 +4,8 @@
         "production": {
             "presets": ["minify"]
         },
-        // "test": {
-        //     "presets": [["env", { "targets": { "node": "current" } }]]
-        // }
+        "test": {
+            "presets": [["@babel/preset-env", { "targets": { "node": "current" } }]]
+        }
     }
 }
