@@ -1,7 +1,7 @@
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+// const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -83,19 +83,13 @@ const plugins = () => {
         new HTMLWebpackPlugin({
             //auto add tags with src
             template: './index.html',
+            favicon: path.resolve(__dirname, 'src', 'favicon.ico'),
             minify: {
                 collapseWhitespace: isProd,
             },
         }),
         new CleanWebpackPlugin(), //clean dist folder
-        new CopyWebpackPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, 'src/favicon.ico'),
-                    to: path.resolve(__dirname, 'dist'),
-                },
-            ],
-        }),
+        // new CopyWebpackPlugin(),
         new VueLoaderPlugin(),
     ]
     // turn on that when analizer needed after each build
@@ -147,7 +141,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath: 'img',
+                            outputPath: 'img', //might be a problem like with fonts
                             esModule: false,
                         },
                     },
@@ -158,7 +152,8 @@ module.exports = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        outputPath: 'fonts',
+                        name: 'fonts/[name].[hash:6].[ext]',
+                        publicPath: '../',
                     },
                 },
             },
