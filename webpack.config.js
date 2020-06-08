@@ -58,7 +58,6 @@ const jsLoaders = () => {
 const optimization = () => {
     //generate optimization objects
     const config = {
-
         splitChunks: {
             chunks: 'all', //optimization code(no reply), vendors is common between files
         },
@@ -89,7 +88,7 @@ const plugins = () => {
             },
         }),
         new CleanWebpackPlugin(), //clean dist folder
-        // new CopyWebpackPlugin(),
+        new CopyWebpackPlugin(),
         new VueLoaderPlugin(),
     ]
     // turn on that when analizer needed after each build
