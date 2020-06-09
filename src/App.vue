@@ -1,7 +1,6 @@
 <template>
     <div>
         <HeaderComponent />
-        <div class="spacer"></div>
         <transition name="fade" mode="out-in">
             <keep-alive>
                 <router-view />

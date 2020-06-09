@@ -99,6 +99,16 @@ const plugins = () => {
         new VueLoaderPlugin(),
         new PurgecssPlugin({
             paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+            whitelistPatterns: [
+                /-(leave|enter|appear)(|-(to|from|active))$/,
+                /^(?!(|.*?:)cursor-move).+-move$/,
+                /^router-link(|-exact)-active$/,
+                /data-v-.*/,
+                /^nav/,
+                /^card/,
+                /^form/,
+                /select|input|label/,
+            ],
         }),
     ]
     // turn on that when analizer needed after each build
