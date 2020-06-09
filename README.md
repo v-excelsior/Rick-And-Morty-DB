@@ -61,4 +61,8 @@ Navigation - change route of the app without reloading the page
 
 ![Other](https://github.com/vakyla98/Rick-And-Morty-DB/blob/gh-pages/src/assets/readme/Other.png)
 
+Worked with minimization, choose better font extension, add "tree shaking" and minimization plugins for `.js` and `.css`
+
+![Minimizing](https://github.com/vakyla98/Rick-And-Morty-DB/blob/gh-pages/src/assets/readme/Minimizing.png)
+
 <b> All techonolies here: </b>  Vue, Vue-router, Vue-test-utils / Jest , Bootstrap, Axios, Webpack, SCSS, ESlint, Babel, Prettier, npm
