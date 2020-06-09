@@ -4,8 +4,6 @@ import ActiveCard from '../components/ActiveCard.vue'
 
 import Vue from 'vue'
 
-
-
 const person = {
     id: 174,
     name: 'Jerry 5-126',

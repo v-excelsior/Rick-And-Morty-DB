@@ -1,4 +1,6 @@
 const path = require('path')
+const glob = require('glob')
+
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 // const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -8,12 +10,17 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+
+const PATHS = {
+    src: path.join(__dirname, 'src'),
+}
 
 const isDev = process.env.NODE_ENV === 'development'
 
 const isProd = !isDev
 
-const filename = ext => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`)
+const filename = ext => (isDev ? `[name].${ext}` : `[name].[hash:6].${ext}`)
 
 const cssLoaders = extra => {
     const loaders = [
@@ -88,8 +95,11 @@ const plugins = () => {
             },
         }),
         new CleanWebpackPlugin(), //clean dist folder
-        new CopyWebpackPlugin(),
+        // new CopyWebpackPlugin(),
         new VueLoaderPlugin(),
+        new PurgecssPlugin({
+            paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+        }),
     ]
     // turn on that when analizer needed after each build
     if (isProd) {
@@ -147,7 +157,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(ttf|woff)$/,
+                test: /\.(ttf|woff|woff2)$/,
                 use: {
                     loader: 'file-loader',
                     options: {

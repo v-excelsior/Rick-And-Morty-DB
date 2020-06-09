@@ -109,7 +109,7 @@ export default {
             }
             return parameters.join('&')
         },
-        searchParameters() {
+        searchParameters() { // DRY - watchers, now no needed to watch all prop one by one
             const { characterName, selected } = this
             return { characterName, selected }
         },
