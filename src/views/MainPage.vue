@@ -7,7 +7,7 @@
             <input
                 type="number"
                 class="page-number text-center mx-2 bg-dark text-light"
-                v-model="pageNumber"
+                v-model.lazy="pageNumber"
             />
             <button class="button button-half" @click="pageNumber++">
                 Next
@@ -69,9 +69,9 @@ export default {
     },
     watch: {
         pageNumber() {
-            if(this.pageNumber === '') this.pageNumber = 1 
-            if(this.pageNumber > 30) this.pageNumber = 1 
-            if(this.pageNumber < 1) this.pageNumber = 30 
+            if (this.pageNumber === '') this.pageNumber = 1
+            if (this.pageNumber > 30) this.pageNumber = 1
+            if (this.pageNumber < 1) this.pageNumber = 30
             this.getInfo()
         },
     },

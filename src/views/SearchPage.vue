@@ -67,7 +67,9 @@
 import { infoService } from '../services'
 import PersonCard from '../components/PersonCard.vue'
 import ActiveCard from '../components/ActiveCard.vue'
+
 import { BForm, BFormInput, BFormSelect } from 'bootstrap-vue'
+
 export default {
     name: 'SearchPage',
     components: {
@@ -109,7 +111,7 @@ export default {
             }
             return parameters.join('&')
         },
-        searchParameters() {
+        searchParameters() { // DRY - watchers, now no needed to watch all prop one by one
             const { characterName, selected } = this
             return { characterName, selected }
         },
