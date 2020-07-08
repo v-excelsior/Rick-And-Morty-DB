@@ -116,14 +116,8 @@ export default {
     },
     methods: {
         async search(filter) {
-            try {
-                let data = await infoService.search(filter)
-                this.foundPeople = data
+                this.foundPeople = await infoService.search(filter)
                 this.activePerson = this.foundPeople[0]
-            } catch (err) {
-                console.log(err.message)
-                this.foundPeople = []
-            }
         },
     },
     beforeMount() {

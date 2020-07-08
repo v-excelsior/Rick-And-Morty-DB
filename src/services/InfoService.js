@@ -14,9 +14,16 @@ export class InfoService {
             .get(this.http + id)
             .then(res => res.data)
     }
-    search(filter) {
-        return axios
-            .get(this.http + '?name=' + filter)
-            .then(res => res.data.results)
+    async search(filter) {
+        try {
+            let responce = await axios
+                .get(this.http + '?name=' + filter)
+                .then(res => res.data.results)
+            return responce
+        }
+        catch  {
+            console.warn('[No characters with this options]')
+            return []
+        }
     }
 }
